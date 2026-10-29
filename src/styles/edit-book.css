@@ -1,0 +1,370 @@
+:root {
+    font-family: "DM Sans", Arial, sans-serif;
+    color: #655b83;
+    background: #eee8f2;
+    font-synthesis: none
+}
+
+* {
+    box-sizing: border-box
+}
+
+body { 
+    margin: 0;
+    min-height: 100vh;
+    display: grid;
+    background: radial-gradient(ellipse at 15% 10%, #f7e9ef, #eeeaf5 48%, #e7e2ef)
+}
+
+.edit-page {
+    display: grid;
+    place-items: center;
+    padding: 25px;
+}
+
+.modal {
+    width: min(100%, 1000px);
+    padding: 26px 30px 27px;
+    border: 1px solid #e8dfe7;
+    border-radius: 17px;
+    background: #fffaf8;
+    box-shadow: 0 22px 70px #57466a24;
+    max-height: calc(100vh - 52px);
+    overflow: auto
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 22px
+}
+
+.eyebrow {
+    margin: 0 0 4px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #a097b2
+}
+
+.modal-header h1 {
+    margin: 0;
+    font: 600 25px "Playfair Display", Georgia, serif;
+    color: #5e547d
+}
+
+.close {
+    width: 34px;
+    height: 34px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: #f2edf4;
+    color: #8b80aa;
+    font-size: 24px;
+    line-height: 1;
+    text-decoration: none
+}
+
+.editor {
+    display: grid;
+    grid-template-columns: 226px minmax(0, 1fr);
+    gap: 32px
+}
+
+.cover-column {
+    padding-top: 4px
+}
+
+.upload-box {
+    height: 188px;
+    border: 1px dashed #cfc5dd;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 9px;
+    color: #766c9d;
+    font-size: 13px;
+    line-height: 1.55;
+    cursor: pointer;
+    background: #fdfbfc
+}
+
+.upload-box input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none
+}
+
+.upload-box:focus-within {
+    outline: 3px solid #c8bee7
+}
+
+.picture-icon {
+    font-size: 26px;
+    color: #998dc2
+}
+
+.upload-box small {
+    color: #9d94b3;
+    font-size: 10px
+}
+
+.fields {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px
+}
+
+.form-label,
+.status-group legend,
+.rating-group legend {
+    display: block;
+    color: #71668f;
+    font-size: 13px;
+    font-weight: 500
+}
+
+.form-label>span {
+    color: #da777b
+}
+
+.form-label input,
+.form-label select,
+.form-label textarea {
+    display: block;
+    width: 100%;
+    margin-top: 7px;
+    border: 1px solid #ded7e4;
+    border-radius: 10px;
+    background: #fffdfc;
+    color: #71668f;
+    font: 13px "DM Sans", sans-serif;
+    outline: none
+}
+
+.form-label input,
+.form-label select {
+    height: 43px;
+    padding: 0 13px
+}
+
+.form-label input::placeholder,
+.form-label textarea::placeholder {
+    color: #aaa2b8
+}
+
+.form-label select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%238a80ad' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center
+}
+
+.form-label input:focus,
+.form-label select:focus,
+.form-label textarea:focus {
+    border-color: #a99dce;
+    box-shadow: 0 0 0 3px #a99dce22
+}
+
+.status-group,
+.rating-group {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    min-width: 0
+}
+
+.status-group legend,
+.rating-group legend {
+    padding: 0;
+    margin-bottom: 9px
+}
+
+.status-options {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px
+}
+
+.status-options input {
+    position: absolute;
+    opacity: 0
+}
+
+.status-options span {
+    height: 39px;
+    border: 1px solid #ded7e4;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    color: #7d7299;
+    font-size: 12px;
+    cursor: pointer;
+    white-space: nowrap
+}
+
+.status-options input:checked+span {
+    background: #a297ca;
+    border-color: #a297ca;
+    color: #fff
+}
+
+.status-options input:focus-visible+span {
+    outline: 3px solid #c8bee7
+}
+
+.date-label input {
+    max-width: 245px
+}
+
+.description-label {
+    position: relative
+}
+
+.form-label textarea {
+    height: 100px;
+    resize: vertical;
+    padding: 12px 13px 24px;
+    line-height: 1.5
+}
+
+.counter {
+    position: absolute;
+    right: 12px;
+    bottom: 11px;
+    color: #aaa2ba;
+    font-size: 10px
+}
+
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+    padding-top: 2px
+}
+
+.actions a,
+.actions button {
+    height: 40px;
+    padding: 0 20px;
+    border-radius: 10px;
+    font: 500 13px "DM Sans", sans-serif;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer
+}
+
+.cancel {
+    border: 1px solid #ded7e4;
+    color: #83799a;
+    text-decoration: none;
+    background: #fffdfc
+}
+
+.save {
+    border: 0;
+    background: linear-gradient(100deg, #9689c1, #a79bcf);
+    color: white;
+    box-shadow: 0 5px 13px #9183bd38
+}
+
+.save:hover {
+    filter: brightness(1.04)
+}
+
+.delete-button {
+  padding: 12px 24px;
+  background-color: #fff;
+  color: #dc3545;
+  border: 1px solid #dc3545;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.delete-button:hover {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.delete-button:focus-visible {
+  outline: 2px solid #dc3545;
+  outline-offset: 3px;
+}
+
+
+@media(max-width:680px) {
+    body {
+        padding: 12px
+    }
+
+    .modal {
+        max-height: calc(100vh - 24px);
+        padding: 20px 18px;
+        border-radius: 14px
+    }
+
+    .modal-header {
+        margin-bottom: 16px
+    }
+
+    .editor {
+        grid-template-columns: 1fr;
+        gap: 20px
+    }
+
+    .cover-column {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        padding: 0
+    }
+
+    .upload-box {
+        height: 175px
+    }
+
+    .cover-preview {
+        height: 175px;
+        margin: 0
+    }
+
+    .fields {
+        gap: 14px
+    }
+
+    .status-options {
+        grid-template-columns: repeat(2, minmax(0, 1fr))
+    }
+
+    .description-label textarea {
+        height: 110px
+    }
+}
+
+@media(max-width:380px) {
+    .cover-column {
+        grid-template-columns: 1fr
+    }
+
+    .upload-box,
+    .cover-preview {
+        height: 190px
+    }
+
+    .actions a,
+    .actions button {
+        padding: 0 14px
+    }
+}

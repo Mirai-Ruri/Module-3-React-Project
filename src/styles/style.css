@@ -1,0 +1,182 @@
+/* Sign Up */
+:root {
+    font-family: "DM Sans", Arial, sans-serif;
+    color: #594d70
+}
+
+* {
+    box-sizing: border-box
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: grid;
+    position: relative
+}
+
+body:before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+}
+
+.login-page, .signup-page {
+    display: grid;
+    place-items: center;
+    padding: 50px;
+}
+
+
+.card {
+    position: relative;
+    z-index: 1;
+    width: min(100%, 450px);
+    padding: 38px 39px 36px;
+    border-radius: 23px;
+    background: rgba(255, 248, 244, .97);
+    box-shadow: 0 24px 70px #362c4d40
+}
+
+.brand {
+    text-align: center;
+    margin-bottom: 40px
+}
+
+.brandname {
+    font: 27px "Playfair Display", Georgia, serif;
+    color: #625578
+}
+
+.tagline {
+    margin: 7px 0 0;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #796c88
+}
+
+h1 {
+    font: 600 23px "Playfair Display", Georgia, serif;
+    margin: 0 0 5px;
+    color: #514666
+}
+
+.intro {
+    margin: 0 0 24px;
+    color: #887b94;
+    font-size: 15px
+}
+
+.intro em {
+    color: #a092c6;
+    font-style: normal
+}
+
+.field {
+    height: 47px;
+    border: 1px solid #ded3d4;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    padding: 0 14px;
+    margin-bottom: 11px;
+    color: #9586aa;
+    gap: 16px
+}
+
+.field:focus-within {
+    border-color: #a99ac9;
+    box-shadow: 0 0 0 3px #a99ac922
+}
+
+.field b {
+    font-size: 17px;
+    width: 18px;
+    text-align: center;
+    font-weight: 400
+}
+
+.field input {
+    min-width: 0;
+    flex: 1;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: #594d70;
+    font: 14px "DM Sans", sans-serif
+}
+
+.field input::placeholder {
+    color: #a59bac;
+    opacity: 1
+}
+
+.primary {
+    width: 100%;
+    height: 45px;
+    border: 0;
+    border-radius: 12px;
+    margin-top: 13px;
+    background: linear-gradient(100deg, #9f91c3, #a295c4);
+    color: white;
+    font: 500 15px "DM Sans", sans-serif;
+    cursor: pointer
+}
+
+.primary:hover {
+    filter: brightness(1.05)
+}
+
+.switch {
+    text-align: center;
+    margin: 35px 0 0;
+    font-size: 13px;
+    color: #a096a8
+}
+
+.switch a,
+.forgot {
+    color: #8f81bd;
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 6px
+}
+
+.switch a:hover,
+.forgot:hover {
+    color: #66588d
+}
+
+.toggle-password {
+    background-color: none;
+}
+
+@media(max-width:480px) {
+    .card {
+        padding: 30px 25px;
+        border-radius: 20px
+    }
+
+    .brand {
+        margin-bottom: 32px
+    }
+
+    h1 {
+        font-size: 22px
+    }
+}
+
+/* LogIn */
+
+.forgot-row {
+    text-align: center;
+    margin: 5px 0 1px;
+    font-size: 13px
+}
+
+.forgot {
+    color: #9485bd;
+    text-decoration: none
+}
+

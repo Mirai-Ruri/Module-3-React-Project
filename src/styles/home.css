@@ -1,0 +1,529 @@
+:root {
+    font-family: "DM Sans", Arial, sans-serif;
+    color: #5d5278;
+    background: #fffaf8;
+    font-synthesis: none
+}
+
+* {
+    box-sizing: border-box
+}
+
+html {
+    scroll-behavior: smooth
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(180deg, #fffdfc, #fff8f5 65%, #fffaf8)
+}
+
+a {
+    color: inherit;
+    text-decoration: none
+}
+
+.topbar {
+    height: 80px;
+    background: rgba(255, 252, 252, .93);
+    border-bottom: 1px solid #eee4e8;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 max(calc((100vw - 1280px)/2), 5vw);
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    backdrop-filter: blur(12px)
+}
+
+.brand {
+    display: grid;
+    align-items: center;
+    padding-top: 40px;
+    gap: 12px;
+    font: 1000 21px "Playfair Display", Georgia, serif;
+    color: #665b8b;
+    white-space: nowrap;
+
+}
+.topbar nav {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 34px;
+    color: #80769b;
+    font-size: 15px
+}
+
+.topbar nav>a {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    position: relative
+}
+
+.topbar nav>a.active {
+    color: #685d98;
+    font-weight: 600
+}
+
+.topbar nav>a.active:after {
+    content: "";
+    height: 3px;
+    background: #9385c0;
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    border-radius: 4px
+}
+
+.topbar nav>a>span:first-child {
+    font-size: 20px
+}
+
+.avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: #f0edf9;
+    color: #9183c3;
+    font-size: 19px;
+    margin-left: 12px
+}
+
+.welcome {
+    min-height: 328px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #f0e8e8
+}
+
+.welcome-inner {
+    width: min(1280px, calc(100% - 64px));
+    margin: 0 auto;
+    padding: 38px 0 42px 8%
+}
+
+.greeting {
+    font: 400 34px "Playfair Display", Georgia, serif;
+    color: #887e9f;
+    margin: 0
+}
+
+.welcome h1 {
+    font: 600 clamp(48px, 5vw, 62px) "Playfair Display", Georgia, serif;
+    color: #655982;
+    line-height: 1.12;
+    margin: 0
+}
+
+.welcome h1 span {
+    font-size: 25px;
+    color: #bd9dba;
+    vertical-align: middle
+}
+
+.motto {
+    font-size: 19px;
+    font-style: italic;
+    color: #958ab3;
+    margin: 7px 0 34px
+}
+
+.add-book {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(110deg, #988bc6, #a196cd);
+    color: #fff;
+    border-radius: 30px;
+    padding: 14px 23px;
+    font-size: 14px;
+    box-shadow: 0 8px 20px #8f83bd33
+}
+
+.add-book span {
+    font-size: 18px
+}
+
+.add-book b {
+    font-size: 20px;
+    font-weight: 400
+}
+
+.library {
+    width: min(1280px, calc(100% - 64px));
+    margin: 0 auto;
+    padding: 32px 0 0
+}
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #625784
+}
+
+.sparkle {
+    font-size: 27px;
+    color: #9a8bc5
+}
+
+.section-heading h2 {
+    font: 600 25px "Playfair Display", Georgia, serif;
+    margin: 0
+}
+
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin: 16px 0 26px
+}
+
+.filters {
+    display: flex;
+    gap: 9px
+}
+
+.filters button {
+    border: 1px solid #e7dde2;
+    background: transparent;
+    border-radius: 15px;
+    min-width: 113px;
+    padding: 8px 14px;
+    color: #897e9d;
+    font: 12px "DM Sans", sans-serif;
+    cursor: pointer
+}
+
+.filters button.selected {
+    background: #978abd;
+    border-color: #978abd;
+    color: #fff
+}
+
+.search {
+    height: 40px;
+    width: 290px;
+    border: 1px solid #e7dde2;
+    border-radius: 22px;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    gap: 11px;
+    color: #968bb0
+}
+
+.search span {
+    font-size: 24px;
+    line-height: 1
+}
+
+.search input {
+    min-width: 0;
+    flex: 1;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    font: 13px "DM Sans", sans-serif;
+    color: #655b7c
+}
+
+.search input::placeholder {
+    color: #a39ab0
+}
+
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 20px
+}
+
+.book-card {
+    min-width: 0;
+    position: relative;
+    padding: 12px 18px 16px;
+    border: 1px solid #ebdfe2;
+    border-radius: 13px;
+    background: rgba(255, 255, 255, .52);
+    box-shadow: 0 6px 18px #775c7010
+}
+
+.cover {
+    height: 226px;
+    position: relative;
+    border-radius: 7px;
+    overflow: hidden;
+    display: grid;
+    /* place-items: center;
+    text-align: center;
+    padding: 25px 13px; */
+    color: #fff8f4;
+    box-shadow: inset 0 0 0 1px #ffffff35;
+    background-color: #8799ca
+}
+
+.image {
+    height: 100%;
+    width: 100%;;
+}
+
+.status {
+    position: absolute;
+    z-index: 2;
+    top: 10px;
+    left: 9px;
+    border-radius: 14px;
+    padding: 5px 9px;
+    font-size: 10px;
+    color: #4f4760;
+    background: #fff9f0e8;
+    white-space: nowrap
+}
+
+.status.completed {
+    background: #dff4e8;
+    color: #347258
+}
+
+.status.want {
+    background: #f0dcf6;
+    color: #805d99
+}
+
+.book-card .title {
+    font: 500 14px/1.35 "Playfair Display", Georgia, serif;
+    margin: 11px 0 5px;
+    color: #665a82;
+    min-height: 19px
+}
+
+.author {
+    font-size: 11px;
+    color: #9a90a8;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+
+.finished {
+    display: inline-block;
+    margin-top: 13px;
+    border-radius: 14px;
+    background: #e7f3e9;
+    color: #58856c;
+    padding: 5px 10px;
+    font-size: 11px
+}
+
+.progress {
+    display: inline-block;
+    margin-top: 13px;
+    border-radius: 14px;
+    background: #f9f6a1;
+    color: #58856c;
+    padding: 5px 10px;
+    font-size: 11px
+}
+
+.wish {
+    display: inline-block;
+    margin-top: 13px;
+    border-radius: 14px;
+    background: #91bce4;
+    color: #58856c;
+    padding: 5px 10px;
+    font-size: 11px
+}
+
+.quick-add {
+    position: absolute;
+    right: 17px;
+    bottom: 14px;
+    border: 0;
+    border-radius: 50%;
+    width: 26px;
+    height: 26px;
+    background: #f0edf4;
+    color: #9389b6;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer
+}
+
+footer {
+    text-align: center;
+    padding: 39px 16px 24px;
+    color: #9b91b3
+}
+
+footer .moon {
+    font-size: 15px;
+    color: #9184b4
+}
+
+footer p {
+    font: italic 15px "Playfair Display", Georgia, serif;
+    margin: 9px 0 0
+}
+
+@media(max-width:1000px) {
+    .book-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr))
+    }
+
+    .book-card {
+        padding: 12px
+    }
+
+    .cover {
+        height: 250px
+    }
+
+    .topbar {
+        padding: 0 28px
+    }
+
+    .library {
+        width: calc(100% - 48px)
+    }
+}
+
+@media(max-width:680px) {
+    .topbar {
+        height: auto;
+        min-height: 70px;
+        padding: 12px 18px;
+        flex-wrap: wrap;
+        gap: 10px
+    }
+
+    .brand {
+        font-size: 18px
+    }
+
+    .topbar nav {
+        width: 100%;
+        height: 42px;
+        justify-content: space-between;
+        gap: 12px;
+        font-size: 13px
+    }
+
+    .topbar nav>a.active:after {
+        bottom: 0
+    }
+
+    .avatar {
+        width: 26px;
+        height: 26px;
+        margin-left: 2px
+    }
+
+    .welcome {
+        min-height: 280px
+    }
+
+    .welcome-inner {
+        width: calc(100% - 40px);
+        padding: 35px 0
+    }
+
+    .greeting {
+        font-size: 28px
+    }
+
+    .welcome h1 {
+        font-size: 50px
+    }
+
+    .motto {
+        font-size: 16px;
+        margin-bottom: 25px
+    }
+
+    .library {
+        width: calc(100% - 32px);
+        padding-top: 26px
+    }
+
+    .toolbar {
+        align-items: stretch;
+        flex-direction: column;
+        margin-bottom: 18px
+    }
+
+    .filters {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr)
+    }
+
+    .filters button {
+        width: 100%;
+        min-width: 0
+    }
+
+    .search {
+        width: 100%
+    }
+
+    .book-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px
+    }
+
+    .cover {
+        height: clamp(175px, 56vw, 240px)
+    }
+
+    .book-card {
+        padding: 9px
+    }
+
+    .book-card .title {
+        font-size: 13px
+    }
+
+    .author {
+        font-size: 10px
+    }
+
+    .progress:before {
+        left: 9px;
+        right: 46px
+    }
+
+    .status {
+        font-size: 9px;
+        padding: 4px 7px
+    }
+
+    .cover-title {
+        font-size: 18px
+    }
+}
+
+@media(max-width:390px) {
+    .book-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px
+    }
+
+    .cover {
+        height: 165px
+    }
+
+    .topbar nav {
+        font-size: 12px
+    }
+}
